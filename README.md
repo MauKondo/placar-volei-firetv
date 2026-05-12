@@ -9,6 +9,22 @@ A comunicação é feita por um servidor HTTP embutido no próprio app
 
 ---
 
+## Screenshots
+
+### Dark mode
+
+| Tela do Fire TV | Controle no celular |
+|---|---|
+| ![TV dark](docs/screenshots/tv-dark.png) | ![Controle dark](docs/screenshots/controle-dark.png) |
+
+### Light mode
+
+| Tela do Fire TV | Controle no celular |
+|---|---|
+| ![TV light](docs/screenshots/tv-light.png) | ![Controle light](docs/screenshots/controle-light.png) |
+
+---
+
 ## Features
 
 - **Placar broadcast-grade** em 10-foot UI (otimizado pra TV)
