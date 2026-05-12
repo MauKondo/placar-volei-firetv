@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <!-- ===== Topbar ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="36dp"
+                android:layout_height="4dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_wordmark_line" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="PLACAR"
+                android:textColor="@color/fg_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="monospace"
+                android:text="VÔLEI · CONTROLE"
+                android:textColor="@color/fg_muted"
+                android:textSize="11sp"
+                android:letterSpacing="0.18" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Mode badge -->
+            <LinearLayout
+                android:id="@+id/modeBadgeContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_mode_badge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_serve_bar_active" />
+
+                <TextView
+                    android:id="@+id/modeIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="FIVB"
+                    android:textColor="@color/fg_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.14" />
+            </LinearLayout>
+
+            <!-- Clock -->
+            <TextView
+                android:id="@+id/clockText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="--:--"
+                android:textColor="@color/fg_secondary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04" />
+        </LinearLayout>
+
+        <!-- ===== Scoreboard ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <!-- ===== Time A ===== -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_team_card"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/teamAName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:maxLines="1"
+                    android:text="Time A"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fg_primary"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.01" />
+
+                <View
+                    android:id="@+id/serveDotA"
+                    android:layout_width="64dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_serve_bar_active" />
+
+                <!-- Score gigante -->
+                <TextView
+                    android:id="@+id/teamAPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="-12dp"
+                    android:layout_marginBottom="-12dp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-condensed"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="0"
+                    android:textColor="@color/fg_primary"
+                    android:textStyle="bold"
+                    android:letterSpacing="-0.04"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="200sp"
+                    android:autoSizeMaxTextSize="600sp"
+                    android:autoSizeStepGranularity="4sp" />
+
+                <View
+                    android:id="@+id/serveBarBottomA"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_serve_bar_active" />
+
+                <!-- Sets pill -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_sets_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/teamASets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="0"
+                        android:textColor="@color/fg_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="monospace"
+                        android:text="SETS"
+                        android:textColor="@color/fg_muted"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.18" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Divider -->
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="×"
+                    android:textColor="@color/fg_dim"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <!-- ===== Time B ===== -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_team_card"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/teamBName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="Time B"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fg_primary"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.01" />
+
+                <View
+                    android:id="@+id/serveDotB"
+                    android:layout_width="64dp"
+                    android:layout_height="4dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_serve_bar_active" />
+
+                <TextView
+                    android:id="@+id/teamBPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="-12dp"
+                    android:layout_marginBottom="-12dp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-condensed"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="0"
+                    android:textColor="@color/fg_primary"
+                    android:textStyle="bold"
+                    android:letterSpacing="-0.04"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="200sp"
+                    android:autoSizeMaxTextSize="600sp"
+                    android:autoSizeStepGranularity="4sp" />
+
+                <View
+                    android:id="@+id/serveBarBottomB"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_serve_bar_active" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/bg_sets_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/teamBSets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="0"
+                        android:textColor="@color/fg_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="monospace"
+                        android:text="SETS"
+                        android:textColor="@color/fg_muted"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.18" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ===== Footer info ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Set timer -->
+            <View
+                android:layout_width="14dp"
+                android:layout_height="3dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_wordmark_line" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="SET ATUAL"
+                android:textColor="@color/fg_muted"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.18" />
+
+            <TextView
+                android:id="@+id/setTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="00:00"
+                android:textColor="@color/fg_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04" />
+
+            <!-- History -->
+            <TextView
+                android:id="@+id/historyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="32dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
+                android:textColor="@color/fg_secondary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Server info -->
+            <TextView
+                android:id="@+id/serverInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="monospace"
+                android:text="—"
+                android:textColor="@color/fg_muted"
+                android:textSize="13sp"
+                android:letterSpacing="0.08" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== Overlay vencedor ===== -->
+    <LinearLayout
+        android:id="@+id/winnerOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/winner_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="4dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_wordmark_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="VITÓRIA"
+            android:textColor="@color/accent"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.4" />
+
+        <com.mauricio.placarvolei.GradientTextView
+            android:id="@+id/winnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textAllCaps="true"
+            android:textColor="@color/fg_primary"
+            android:textSize="180sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"
+            android:includeFontPadding="false"
+            android:layerType="software" />
+    </LinearLayout>
+
+</FrameLayout>

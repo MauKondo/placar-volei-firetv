@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#08090C">
+    <title>Placar Vôlei · Controle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@700;900&family=Saira:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="topbar">
+    <div class="wordmark">
+        <span class="wordmark-line"></span>
+        <span class="wordmark-text">PLACAR</span>
+        <span class="wordmark-sub">VÔLEI · CONTROLE</span>
+    </div>
+    <div class="topbar-right">
+        <button class="theme-toggle" id="themeToggle" data-action="theme" aria-label="alternar tema">
+            <span class="theme-toggle-icon" id="themeToggleIcon">☾</span>
+        </button>
+        <div class="mode-badge" id="modeBadge">
+            <span class="mode-badge-dot"></span>
+            <span class="mode-badge-text">FIVB</span>
+        </div>
+    </div>
+</header>
+
+<main class="board">
+
+    <!-- ===== Scoreboard ===== -->
+    <section class="scoreboard">
+
+        <article class="team" data-team="A">
+            <header class="team-head">
+                <span class="team-tag">TIME A</span>
+                <input class="team-name-input" id="teamAName" maxlength="14" placeholder="Time A" autocomplete="off">
+                <span class="serve-bar" id="serveDotA" aria-label="indicador de saque"></span>
+            </header>
+            <div class="team-score" id="teamAPoints">0</div>
+            <footer class="team-foot">
+                <div class="sets-block">
+                    <span class="sets-num" id="teamASets">0</span>
+                    <span class="sets-label">SETS</span>
+                </div>
+                <div class="ctrl-stack">
+                    <button class="ctrl-btn ctrl-plus" data-action="A+" aria-label="ponto Time A">
+                        <span class="ctrl-glyph">+</span>
+                    </button>
+                    <button class="ctrl-btn ctrl-minus" data-action="A-" aria-label="remover ponto Time A">
+                        <span class="ctrl-glyph">−</span>
+                    </button>
+                </div>
+            </footer>
+        </article>
+
+        <div class="board-divider" aria-hidden="true">
+            <span class="divider-vs">×</span>
+        </div>
+
+        <article class="team" data-team="B">
+            <header class="team-head">
+                <span class="team-tag">TIME B</span>
+                <input class="team-name-input" id="teamBName" maxlength="14" placeholder="Time B" autocomplete="off">
+                <span class="serve-bar" id="serveDotB" aria-label="indicador de saque"></span>
+            </header>
+            <div class="team-score" id="teamBPoints">0</div>
+            <footer class="team-foot">
+                <div class="sets-block">
+                    <span class="sets-num" id="teamBSets">0</span>
+                    <span class="sets-label">SETS</span>
+                </div>
+                <div class="ctrl-stack">
+                    <button class="ctrl-btn ctrl-plus" data-action="B+" aria-label="ponto Time B">
+                        <span class="ctrl-glyph">+</span>
+                    </button>
+                    <button class="ctrl-btn ctrl-minus" data-action="B-" aria-label="remover ponto Time B">
+                        <span class="ctrl-glyph">−</span>
+                    </button>
+                </div>
+            </footer>
+        </article>
+    </section>
+
+    <!-- ===== Strip ===== -->
+    <section class="strip">
+        <button class="strip-cell strip-action" data-action="serve">
+            <span class="strip-key">SAQUE</span>
+            <span class="strip-val" id="servingTeam">—</span>
+            <span class="strip-hint">TROCAR</span>
+        </button>
+        <label class="strip-cell strip-select">
+            <span class="strip-key">MELHOR DE</span>
+            <select id="bestOfSelect">
+                <option value="3">3 SETS</option>
+                <option value="5" selected>5 SETS</option>
+                <option value="7">7 SETS</option>
+                <option value="9">9 SETS</option>
+                <option value="11">11 SETS</option>
+            </select>
+            <span class="strip-caret">▾</span>
+        </label>
+        <label class="strip-cell strip-select">
+            <span class="strip-key">PONTUAÇÃO</span>
+            <select id="scoringModeSelect">
+                <option value="FIVB_DEFAULT">PADRÃO · 25/15</option>
+                <option value="ALL_25">TODOS · 25</option>
+                <option value="ALL_15">TODOS · 15</option>
+            </select>
+            <span class="strip-caret">▾</span>
+        </label>
+    </section>
+
+    <!-- ===== History ===== -->
+    <section class="history">
+        <div class="section-head">
+            <span class="section-bar"></span>
+            <h2 class="section-title">HISTÓRICO</h2>
+        </div>
+        <div class="history-list" id="historyList">
+            <span class="history-empty">Nenhum set encerrado.</span>
+        </div>
+    </section>
+
+    <!-- ===== Footer actions ===== -->
+    <footer class="footer-actions">
+        <button class="footer-btn footer-warn" data-action="new">
+            <span class="footer-btn-glyph">↻</span>
+            <span>NOVA PARTIDA</span>
+        </button>
+        <button class="footer-btn footer-danger" data-action="reset">
+            <span class="footer-btn-glyph">⨯</span>
+            <span>RESET</span>
+        </button>
+    </footer>
+
+</main>
+
+<!-- ===== Modal: confirma fim de set ===== -->
+<div class="modal" id="setCloseModal" hidden>
+    <div class="modal-card">
+        <span class="modal-tag">FIM DE SET?</span>
+        <div class="modal-score" id="modalScore">— × —</div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-yes" data-action="confirm-close">
+                <span>CONFIRMAR</span>
+            </button>
+            <button class="modal-btn modal-no" data-action="reject-close">
+                <span>DESFAZER</span>
+            </button>
+        </div>
+        <p class="modal-foot">Confirme só se o ponto foi válido.</p>
+    </div>
+</div>
+
+<!-- ===== Modal: vitória ===== -->
+<div class="modal modal-victory" id="matchFinishedModal" hidden>
+    <div class="modal-card">
+        <span class="modal-tag victory-tag">VITÓRIA</span>
+        <div class="victory-name" id="winnerName">—</div>
+        <button class="modal-btn modal-yes modal-victory-btn" data-action="new">
+            <span>NOVA PARTIDA</span>
+        </button>
+    </div>
+</div>
+
+<!-- ===== Status pill ===== -->
+<div class="status-pill" id="connStatus">
+    <span class="status-dot"></span>
+    <span class="status-text">conectando</span>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>

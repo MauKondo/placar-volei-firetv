@@ -1,0 +1,30 @@
+<resources>
+    <!-- DARK theme -->
+    <!-- surface -->
+    <color name="bg_dark">#08090C</color>
+    <color name="bg_elev">#0D0F15</color>
+    <color name="surface">#141823</color>
+    <color name="surface_hi">#1B202E</color>
+    <color name="border">#262C3B</color>
+    <color name="border_hi">#3A4154</color>
+
+    <!-- text -->
+    <color name="fg_primary">#F4F6FB</color>
+    <color name="fg_secondary">#8B92A6</color>
+    <color name="fg_muted">#4F576B</color>
+    <color name="fg_dim">#2C3243</color>
+
+    <!-- accent — electric lime on near-black -->
+    <color name="accent">#D5FF36</color>
+    <color name="accent_dim">#5C6F18</color>
+
+    <!-- status -->
+    <color name="ok">#2FD970</color>
+    <color name="warn">#FFA640</color>
+    <color name="danger">#FF4D6D</color>
+
+    <!-- aliases -->
+    <color name="fg_accent">#D5FF36</color>
+    <color name="serve_dot">#D5FF36</color>
+    <color name="winner_bg">#E608090C</color>
+</resources>

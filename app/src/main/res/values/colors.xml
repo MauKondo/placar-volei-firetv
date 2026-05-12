@@ -1,0 +1,30 @@
+<resources>
+    <!-- LIGHT theme (default) -->
+    <!-- surface -->
+    <color name="bg_dark">#F4F5F8</color>
+    <color name="bg_elev">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_hi">#EBEFF5</color>
+    <color name="border">#D8DEE9</color>
+    <color name="border_hi">#B6BFD0</color>
+
+    <!-- text -->
+    <color name="fg_primary">#15171F</color>
+    <color name="fg_secondary">#4E5566</color>
+    <color name="fg_muted">#6B7280</color>
+    <color name="fg_dim">#C2C9D4</color>
+
+    <!-- accent — FIVB orange, high contrast on white -->
+    <color name="accent">#FF6B00</color>
+    <color name="accent_dim">#FFD7B8</color>
+
+    <!-- status -->
+    <color name="ok">#16A34A</color>
+    <color name="warn">#D97706</color>
+    <color name="danger">#DC2626</color>
+
+    <!-- aliases -->
+    <color name="fg_accent">#FF6B00</color>
+    <color name="serve_dot">#FF6B00</color>
+    <color name="winner_bg">#E6FFFFFF</color>
+</resources>
