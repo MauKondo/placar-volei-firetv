@@ -2,6 +2,18 @@ plugins {
     id 'com.android.application'
 }
 
+// ----------------------------------------------------------------------------
+// secrets.properties (gitignored) define o PIN do controle.
+// Se não existir, usa "1234" como fallback — TROQUE antes de usar em produção.
+// ----------------------------------------------------------------------------
+def secretsFile = rootProject.file("secrets.properties")
+def appPin = "1234"
+if (secretsFile.exists()) {
+    def props = new Properties()
+    props.load(new FileInputStream(secretsFile))
+    appPin = props.getProperty("PIN", appPin)
+}
+
 android {
     namespace 'com.mauricio.placarvolei'
     compileSdk 33
@@ -12,6 +24,13 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        // injetado em BuildConfig.PIN
+        buildConfigField "String", "PIN", "\"${appPin}\""
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     buildTypes {

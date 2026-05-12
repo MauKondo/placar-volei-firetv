@@ -1,11 +1,19 @@
+# Android Studio / IntelliJ
 *.iml
-.gradle
-/local.properties
-/.idea
-.DS_Store
+.idea/
+.gradle/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Build outputs
 /build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
 app/build/
+
+# Local config (não versionar — contém path do SDK, PIN, keystores)
+local.properties
+secrets.properties
+
+# Sistema
+.DS_Store
+Thumbs.db
