@@ -44,8 +44,9 @@ public class PlacarServer extends NanoHTTPD {
     private static final String TAG = "PlacarServer";
     public static final int PORT = 8080;
 
-    /** PIN fixo. Exigido em todas as mutações (POST). GETs ficam livres. */
-    public static final String PIN = "1579";
+    /** PIN fixo. Exigido em todas as mutações (POST). GETs ficam livres.
+     *  IMPORTANTE: troque este valor antes de instalar em produção. */
+    public static final String PIN = "1234";
 
     private final Context context;
     private final Gson gson = new Gson();
